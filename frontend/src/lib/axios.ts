@@ -11,6 +11,7 @@ const axiosInstance = axios.create({
   },
 });
 
+
 // Interceptor to add JWT token to all requests
 axiosInstance.interceptors.request.use(
   (config) => {

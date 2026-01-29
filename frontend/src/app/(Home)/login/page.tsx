@@ -156,7 +156,7 @@ export default function LoginPage() {
             <div className="text-center mt-6">
               <p className="text-sm opacity-70">
                 New to the platform?{" "}
-                <Link href="/register" className="link link-primary font-bold">
+                <Link href="/sign-up" className="link link-primary font-bold">
                   Request Access
                 </Link>
               </p>

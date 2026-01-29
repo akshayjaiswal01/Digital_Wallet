@@ -65,12 +65,16 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowNextJs", policy =>
     {
-        policy.WithOrigins("http://localhost:3000")
-            .AllowAnyMethod()
-            .AllowAnyHeader()
-            .AllowCredentials();
+        policy.WithOrigins(
+            "http://localhost:3000",
+            "https://your-frontend.vercel.app"
+        )
+        .AllowAnyMethod()
+        .AllowAnyHeader()
+        .AllowCredentials();
     });
 });
+
 
 var app = builder.Build();
 

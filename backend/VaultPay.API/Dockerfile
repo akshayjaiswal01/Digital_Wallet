@@ -2,13 +2,16 @@
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
 
-# Copy csproj and restore as distinct layers
-COPY VaultPay.API/VaultPay.API.csproj VaultPay.API/
-RUN dotnet restore VaultPay.API/VaultPay.API.csproj
+# Copy the csproj file only from current directory (because context is VaultPay.API)
+COPY VaultPay.API.csproj ./
 
-# Copy everything else and build
+# Restore dependencies
+RUN dotnet restore ./VaultPay.API.csproj
+
+# Copy everything else
 COPY . .
-WORKDIR /src/VaultPay.API
+
+# Publish app
 RUN dotnet publish -c Release -o /app/publish
 
 # Stage 2: Runtime

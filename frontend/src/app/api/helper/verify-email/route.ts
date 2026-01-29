@@ -1,4 +1,4 @@
-import verifyEmail from "@/config/verifyemail";
+import verifyEmail from "./verifyEmail";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
